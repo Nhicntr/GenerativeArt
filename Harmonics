@@ -1,0 +1,33 @@
+int steps = 18;
+float x;
+float y;
+float r=200f  // f is float data type.
+PVector oldPos;
+
+void setup(){
+size(600,600);
+}
+
+void draw(){
+background(255);
+ translate(width/2, height/2);
+
+for (int i=0; i<steps; i++)
+ {float ang=map(i,0,steps, 0 , 2f*PI);
+ 
+ x=sin(ang)*r;  //x=sin(ang*fx)*r    r is raduis, ang from 0 to 2PI
+ y=cos(ang)*r;  //y=cos(ang*fy)*r
+ 
+ noStroke();
+ fill(0);
+ ellipse(x,y,4,4);
+ 
+ if (oldPos!=null)
+  {stroke(0);
+ line(x,y,oldPos.x,oldPos.y);
+  }
+  oldPos = new PVector(x,y);
+ }
+ 
+}
+
